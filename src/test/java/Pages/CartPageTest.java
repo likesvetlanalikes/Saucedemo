@@ -1,7 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-/*public class cartPageTest extends BaseTest {
+/*public class cartPageTest extends Locators.BaseTest {
     private WebDriver driver;
     private By products = By.cssSelector(".cart_item");
     private By checkoutButton = By.cssSelector(".checkout_button");
