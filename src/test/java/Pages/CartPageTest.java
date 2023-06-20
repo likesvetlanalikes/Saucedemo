@@ -1,7 +1,9 @@
+import Locators.BaseTest;
+import Pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-/*public class cartPageTest extends Locators.BaseTest {
+public class cartPageTest extends BasePage {
     private WebDriver driver;
     private By products = By.cssSelector(".cart_item");
     private By checkoutButton = By.cssSelector(".checkout_button");
@@ -46,4 +48,3 @@ import org.testng.annotations.Test;
         assertTrue(driver.getCurrentUrl().contains("inventory.html"));
     }
 }
- */
