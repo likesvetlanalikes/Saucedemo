@@ -19,8 +19,8 @@ public class LoginTest extends BaseTest{
     @Test
     public void loginUserNameShouldBeRequared(){
         loginPage.open();
-        loginPage.login("","secret_sauce")
-        assertEquals((loginPage.getClass(),"Epic sadface: Username is required");
+        loginPage.login("","secret_sauce");
+        assertEquals((loginPage.getClass("",""Epic sadface: Username is required");
     }
     @Test
     public void loginBlockUser(){
