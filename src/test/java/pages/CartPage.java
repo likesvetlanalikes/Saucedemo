@@ -1,17 +1,27 @@
-import Locators.BaseTest;
-import Pages.BasePage;
+package pages;
+
+import pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
-public class cartPageTest extends BasePage {
+import org.openqa.selenium.WebElement;
+import java.util.*;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+
+
+public class CartPage extends BasePage {
     private WebDriver driver;
     private By products = By.cssSelector(".cart_item");
     private By checkoutButton = By.cssSelector(".checkout_button");
     private By continueShoppingButton = By.cssSelector(".btn_secondary");
 
-    public cartPageTest(WebDriver driver) {
+    public CartPage(WebDriver driver) {
+
         this.driver = driver;
     }
+
     public List<Map<String, String>> getProducts() {
         List<Map<String, String>> productList = new ArrayList<Map<String, String>>();
         List<WebElement> itemElements = driver.findElements(products);
@@ -24,27 +34,6 @@ public class cartPageTest extends BasePage {
         }
         return productList;
     }
-
-    public void clickCheckout() {
-        driver.findElement(checkoutButton).click();
-    }
-
-    public void clickContinueShopping() {
-        driver.findElement(continueShoppingButton).click();
-    }
-
-    @Test
-    public void cartPageTest() {
-        CartPage cartPage = new CartPage(driver);
-
-
-        List<Map<String, String>> productList = cartPage.getProducts();
-        assertEquals(productList.size(), 2);
-
-   
-        cartPage.clickContinueShopping();
-
-
-        assertTrue(driver.getCurrentUrl().contains("inventory.html"));
-    }
 }
+
+

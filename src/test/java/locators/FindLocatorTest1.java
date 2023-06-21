@@ -1,8 +1,8 @@
-package Locators;
+package locators;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import org.openqa.selenium.WebElement;
+
 public class FindLocatorTest1 extends BaseTest {
 
     @Test

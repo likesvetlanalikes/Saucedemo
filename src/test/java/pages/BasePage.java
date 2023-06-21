@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 
@@ -8,6 +8,6 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
 
-        this.driver = driver;
+        this.driver = driver; // create constructor
     }
 }

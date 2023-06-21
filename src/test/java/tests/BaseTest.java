@@ -28,7 +28,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(driver);
-        inventoryPage = new InventoryPage(driver);
+        inventoryPage = new InventoryPage(driver); // give me driver
     }
 
     @AfterMethod(alwaysRun = true)
