@@ -1,25 +1,24 @@
 package pages;
 
-import pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.*;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 
 
 public class CartPage extends BasePage {
-    private WebDriver driver;
     private By products = By.cssSelector(".cart_item");
     private By checkoutButton = By.cssSelector(".checkout_button");
     private By continueShoppingButton = By.cssSelector(".btn_secondary");
 
     public CartPage(WebDriver driver) {
-
-        this.driver = driver;
+        super(driver);
+    }
+        @Override
+        public boolean isPageOpen() {
+            return isExist(products);
     }
 
     public List<Map<String, String>> getProducts() {

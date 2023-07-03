@@ -7,12 +7,17 @@ public class LoginPage extends BasePage {
     public static  final By USER_NAME = By.id("user-name");
     public static  final By PASSWORD = By.id("password");
     public static  final By LOGIN_BUTTON = By.id("login-button");
-    public static  final By ERROR_MESSAGE = By.id("//h3[@data-test='error']");
+    public static  final By ERROR_MESSAGE = By.xpath("//h3[@data-test='error']");
     public LoginPage(WebDriver driver){
         super(driver);
     }
-    public void open(){
-        driver.get("https://www.saucedemo.com/v1/");
+
+    @Override
+    public boolean isPageOpen() {
+        return isExist(LOGIN_BUTTON);
+    }
+    public void openWebsite() {
+        driver.get(URL);
     }
     public void login(String userName, String password){
         driver.findElement(USER_NAME).sendKeys(userName);

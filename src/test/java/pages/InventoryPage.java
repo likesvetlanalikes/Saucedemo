@@ -2,6 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class  InventoryPage extends BasePage {
 
@@ -11,6 +14,10 @@ public class  InventoryPage extends BasePage {
 
     public InventoryPage(WebDriver driver){
         super(driver);
+    }
+    @Override
+    public boolean isPageOpen() {
+        return isExist(INVENTORY_TITLE);
     }
 
     public void addItemInCartByItemName(String itemName){
