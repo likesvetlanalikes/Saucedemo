@@ -26,4 +26,8 @@ public abstract class BasePage {
             return false;
         }
     }
+
+    public abstract void open();
+
+    public abstract void inputLoginAndPassword(String standardUser, String secretSauce);
 }

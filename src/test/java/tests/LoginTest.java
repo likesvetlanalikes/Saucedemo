@@ -1,14 +1,26 @@
 package tests;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.LoginPage;
+import tests.base.BaseTest;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
+
+
+
+    @DataProvider(name = "loginData")
+    public Object[][] InputForITechTask(){
+        return new Object[][]{
+                {"", "secret_sauce", "Epic sadface: Username is required" },
+                {"", "Art"},
+                {15,}
+        }
+    }
     @Test
-    public void loginUserNameWithValidData(){
+    public void loginUserNameWithValidData(priority = 1){
 
 
         loginPage.open();

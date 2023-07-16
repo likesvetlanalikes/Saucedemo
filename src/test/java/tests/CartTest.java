@@ -1,32 +1,34 @@
+package tests;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import tests.BaseTest;
-import pages.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import java.util.*;
-import org.testng.annotations.Test;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import tests.base.BaseTest;
+
+public class CartTest extends BaseTest {
+
+    private Object cartPage;
+
+    @Test
+    public void returnInventoryPageFromCart() {
+        loginPage.open();
+        loginPage.inputLoginAndPassword("standard_user", "secret_sauce");
+        inventoryPage.clickShoppingCartButton();
+        cartPage.clickContinueShoppingButton();
+
+        Assert.assertTrue(inventoryPage.titleInventoryPagesIsVisible(), "Пользователь не перешел на страницу с товарами");
+    }
+
+    @Test
+    public void clickCheckoutButtonInCart() {
+        loginPage.open();
+        loginPage.inputLoginAndPassword("standard_user", "secret_sauce");
+        inventoryPage.addItemInCartByItemName("Sauce Labs Backpack");
+        inventoryPage.clickShoppingCartButton();
+        cartPage.clickCheckoutButton();
+
+        Assert.assertTrue(checkoutPage.titleOnCheckoutPageIsVisible(),
+                "Пользователь не перешел на страницу Checkout");
+    }
 
 
-public class cartTest extends BaseTest{
-    WebDriver driver;
-@Test
-public void cartPageTest() {
-        cartTest = new cartTest(driver);
-
-
-        List<Map<String, String>> productList = cartTest.getProducts();
-        assertEquals(productList.size(), 2);
-
-        
-        cartTest.clickContinueShopping();
-
-
-        assertTrue(driver.getCurrentUrl().contains("inventory.html"));
-        }
-
-        private static void clickContinueShopping() {
-        }
 }
